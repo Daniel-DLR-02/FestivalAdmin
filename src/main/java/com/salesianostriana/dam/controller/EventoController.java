@@ -1,12 +1,17 @@
 package com.salesianostriana.dam.controller;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.model.Evento;
+import com.salesianostriana.dam.model.Reserva;
 import com.salesianostriana.dam.servicios.EventoService;
 
 import lombok.RequiredArgsConstructor;
@@ -34,6 +39,17 @@ public class EventoController {
 		model.addAttribute("eventosDiciembre",eventService.eventosDeUnMes(12, 2021));
 		return "index";	
 	}
+	@GetMapping("/eventos")
+	public String listarReservas(Model model, 
+			@RequestParam("q") Optional<String> consulta) {
+	
+		if(consulta.isEmpty()) 
+			model.addAttribute("eventos",eventService.findAll());
+		else
+			model.addAttribute("eventos",eventService.eventosPorNombre(consulta.get()));
+		
+		return "admin_evento";
+	}
 	
 	@GetMapping("detalles/{id}")
 	public String mostrarDetallesEvento(@PathVariable("id") long id,Model model) {
@@ -42,12 +58,41 @@ public class EventoController {
 		return "detalles";
 		
 	}
-	
-	/*@GetMapping("evento/add")
-	public String addEvento(@ModelAttribute("evento") Evento evento) {
-		eventService.save(evento);
-		return "redirect:/lista_reservas";
+	@GetMapping("/evento/new")
+	public String mostrarFormulario(Model model) {
+		model.addAttribute("evento", new Evento());
+		return "formEvento";
 	}
 	
-	*/
+	@PostMapping("evento/add")
+	public String addEvento(@ModelAttribute("evento") Evento evento) {
+		eventService.save(evento);
+		return "redirect:/";
+	}
+	@GetMapping("evento/editar/{id}")
+	public String editarForm(@PathVariable("id") long id, Model model) {
+		Evento eventoAEditar= eventService.findById(id);
+		if (eventoAEditar != null) {
+			eventoAEditar.setIdEvento(id);
+			model.addAttribute("evento",eventoAEditar);
+			return "formEvento";
+		} else {
+			return "redirect:/";
+		}
+	}
+	
+	
+	@GetMapping("evento/borrar/{id}")
+	public String borrarReserva(@PathVariable("id") Long id, Model model) {
+		Evento eventABorrar = eventService.findById(id);
+		if (eventABorrar != null) 
+			eventService.delete(eventABorrar);
+	    else 
+	    	return "redirect:/?error=true";
+	    
+		return "redirect:/eventos";
+	}
+	
+	
+	
 }

@@ -39,6 +39,12 @@
         <li class="nav-item">
           <a class="nav-link" th:href="@{/reservas}">Reservas</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/evento/new}">Nuevo evento</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/eventos}">Administrar eventos</a>
+        </li>
 
       </ul>
     </div>
@@ -55,7 +61,7 @@
         <div class="container col-xl-5 col-12 p-0 ml-0">
           <label for="nombre">Apellidos</label>
           <input type="text" class="form-control" th:field="*{apellidos}" id="apellidos" aria-describedby="surnameHelp">
-          <small id="nombreHelp" class="form-text text-muted">Escriba sus apellidos.</small>
+          <small id="surnameHelp" class="form-text text-muted">Escriba sus apellidos.</small>
         </div>
       </div>
       <div class="form-group col-12 d-flex d-row flex-wrap p-0 ml-4">
@@ -67,7 +73,7 @@
         <div class="container col-xl-5 col-12 p-0 ml-0">
           <label for="numeroTelefono">Número de teléfono</label>
           <input type="tel" class="form-control" id="numeroTelefono" th:field="*{numTelefono}" aria-describedby="phoneHelp">
-          <small id="emailHelp" class="form-text text-muted">Escriba su número de telefono.</small>
+          <small id="phoneHelp" class="form-text text-muted">Escriba su número de telefono.</small>
         </div>
        
       </div>

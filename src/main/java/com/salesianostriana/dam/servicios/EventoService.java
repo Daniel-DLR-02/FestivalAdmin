@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.salesianostriana.dam.model.Evento;
+import com.salesianostriana.dam.model.Reserva;
 import com.salesianostriana.dam.repositorios.EventoRepositorio;
 import com.salesianostriana.dam.servicios.base.BaseService;
 
@@ -20,13 +21,16 @@ public class EventoService extends BaseService<Evento,Long,EventoRepositorio>{
 	
 	public List<Evento> eventosDeUnMes(int mes, int anio) {
 		
-		// Calcular el 1 del mes del anio
-		// Calcular el fin del mes del anio
+
 		LocalDate inicio = LocalDate.of(anio, mes, 1);
 		LocalDate fin = inicio.with(TemporalAdjusters.lastDayOfMonth());
 		
 		return this.repos.findByFechaEventoBetween(inicio, fin);
 		
+	}
+	
+	public List<Evento> eventosPorNombre(String nombre){
+		return this.repos.findByNombreContainsIgnoreCaseOrderByNombreAsc(nombre);
 	}
 	
 	

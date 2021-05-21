@@ -67,14 +67,15 @@
         <li class="nav-item">
           <a class="nav-link" th:href="@{/}">Home</a>
         </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Reservas</a>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/reservas}">Reservas</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" th:href="@{/evento/new}">Nuevo evento</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" th:href="@{/eventos}">Administrar eventos</a>
+        <li class="nav-item active">
+            <a class="nav-link" th:href="@{/eventos}">Administrar eventos</a>
+            <span class="sr-only">(current)</span>
         </li>
 
       </ul>
@@ -99,24 +100,22 @@
       <table class="table table-responsive table-striped table-dark m-0 p-0">
         <thead>
           <tr>
-            <th class="column">Evento</th>
             <th class="column">Nombre</th>
-            <th class="column">Apellidos</th>
-            <th class="column">Número de télefono</th>
-            <th class="column">Correo</th>
+            <th class="column">Descripción</th>
+            <th class="column">Fecha Evento</th>
+            <th class="column">Precio de la entrada</th>
             <th></th>
             <th></th>
           </tr>
         </thead>
-        <tbody th:each="reserva : ${reservas}">
+        <tbody th:each="evento : ${eventos}">
           <tr>
-            <td th:text="${reserva.evento.nombre}" class="column">Nombre evento</td>
-            <td th:text="${reserva.nombre}" class="column">Daniel</td>
-            <td th:text="${reserva.apellidos}" class="column">De Luna</td>
-            <td th:text="${reserva.numTelefono}" class="column">674838160</td>
-            <td th:text="${reserva.correoElectronico}" class="column" >deluna.rodan21@triana.salesianos.edu</td>
-            <td class="column col-1 col-md-1 col-xl-1"><a th:href="@{/editar/{id}(id=${reserva.idReserva})}" class="btn btn-primary ml-0 d-flex justify-content-center">Editar</a></td>
-            <td class="colmun col-1 col-md-1 col-xl-1"><a th:href="@{/borrar/{id}(id=${reserva.idReserva})}" class="btn btn-danger mr-0 d-flex justify-content-center">Borrar</a></td>
+            <td th:text="${evento.nombre}" class="column">Nombre evento</td>
+            <td th:text="${evento.descripcion}" class="column">info</td>
+            <td th:text="${evento.fechaEvento}" class="column">date</td>
+            <td th:text="${evento.precioEntrada}" class="column">price</td>
+            <td class="column col-1 col-md-1 col-xl-1"><a th:href="@{evento/editar/{id}(id=${evento.idEvento})}" class="btn btn-primary ml-0 d-flex justify-content-center">Editar</a></td>
+            <td class="colmun col-1 col-md-1 col-xl-1"><a th:href="@{evento/borrar/{id}(id=${evento.idEvento})}" class="btn btn-danger mr-0 d-flex justify-content-center">Borrar</a></td>
           </tr>
         </tbody>
       </table>

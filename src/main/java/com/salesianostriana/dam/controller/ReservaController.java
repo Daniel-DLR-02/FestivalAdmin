@@ -46,7 +46,6 @@ public class ReservaController {
 		return "formReserva";
 	}
 	
-	//@PostMapping({"/reserva/add/{id}"})
 	@PostMapping("/reserva/add")
 	public String procesaFormulario(@ModelAttribute("reserva") Reserva reserva) {
 		reservaService.save(reserva);

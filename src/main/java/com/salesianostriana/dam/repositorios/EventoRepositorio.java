@@ -12,5 +12,6 @@ public interface EventoRepositorio
 
 	
 	List<Evento> findByFechaEventoBetween(LocalDate f1, LocalDate f2);
-	
+	List<Evento> findByNombreContainsIgnoreCaseOrderByNombreAsc(String nombre);
+
 }

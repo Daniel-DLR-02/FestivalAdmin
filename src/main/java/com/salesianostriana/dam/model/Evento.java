@@ -10,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -27,7 +29,10 @@ public class Evento {
 	private long idEvento;
 	
 	private String nombre,descripcion;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaEvento;
+	
 	private double precioEntrada;
 	private String image;
 	
