@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org/">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+    type="text/css">
+  <link rel="icon" href="img/logo.png" type="image/icon type">
+  <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css">
+  <title>Lista de reservas</title>
+  <style>
+
+    .column{
+      width: 8.5%;
+      text-align: center;
+    }
+
+  
+
+    @media only screen and (min-width: 1000px) {
+      .carousel-inner img {
+        height: 600px;
+      }
+    
+      aside {
+        visibility: visible;
+      }
+
+      .anuncio {
+        width: 16em;
+        border: 2px solid white;
+        border-radius: 15px;
+        margin-top: 20%;
+      }
+
+      
+    }
+
+    @media only screen and (max-width: 700px) {
+      .carousel-inner img {
+        height: 200px;
+      }
+
+    }
+   
+	
+  </style>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-0">
+    <a class="navbar-brand"><img src="../static/img/logo.png" th:src="@{/img/logo.png}" alt="Icono página" height="50px"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
+      aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/}">Home</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Reservas</a>
+        </li>
+
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" name="q" th:value="${param.q}" placeholder="Nombre reserva..." onchange="window.location.href='http://localhost:9000/?q=' + this.value"/>
+        <button class="btn btn-secondary my-2 my-sm-0 text-align-center" type="submit">
+          <svg
+          xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+          viewBox="0 0 16 16">
+          <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+        </svg>
+      </button>
+      </form>
+    </div>
+  </nav>
+
+
+  <div class="row col-12 col-xl-12 m-0 p-0">
+
+    <div class="container pb-4 p-0 m-0 col-12 col-xl-12 rounded">
+      <table class="table table-responsive table-striped table-dark m-0 p-0">
+        <thead>
+          <tr>
+            <th class="column">Evento</th>
+            <th class="column">Nombre</th>
+            <th class="column">Apellidos</th>
+            <th class="column">Número de télefono</th>
+            <th class="column">Correo</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody th:each="reserva : ${reservas}">
+          <tr>
+            <td th:text="${reserva.evento.nombre}" class="column">Nombre evento</td>
+            <td th:text="${reserva.nombre}" class="column">Daniel</td>
+            <td th:text="${reserva.apellidos}" class="column">De Luna</td>
+            <td th:text="${reserva.numTelefono}" class="column">674838160</td>
+            <td th:text="${reserva.correoElectronico}" class="column" >deluna.rodan21@triana.salesianos.edu</td>
+            <td class="column col-1 col-md-1 col-xl-1"><a th:href="@{/editar/{id}(id=${reserva.idReserva})}" class="btn btn-primary ml-0 d-flex justify-content-center">Editar</a></td>
+            <td class="colmun col-1 col-md-1 col-xl-1"><a th:href="@{/borrar/{id}(id=${reserva.idReserva})}" class="btn btn-danger mr-0 d-flex justify-content-center">Borrar</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
