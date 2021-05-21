@@ -1,0 +1,8 @@
+
+function validarEmail(){
+    
+}
+
+function validarNombreApellidos(){
+
+}

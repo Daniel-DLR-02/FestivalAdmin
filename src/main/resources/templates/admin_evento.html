@@ -15,19 +15,18 @@
   <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css">
   <title>Lista de reservas</title>
   <style>
-
-    .column{
+    .column {
       width: 8.5%;
       text-align: center;
     }
 
-  
+
 
     @media only screen and (min-width: 1000px) {
       .carousel-inner img {
         height: 600px;
       }
-    
+
       aside {
         visibility: visible;
       }
@@ -39,7 +38,7 @@
         margin-top: 20%;
       }
 
-      
+
     }
 
     @media only screen and (max-width: 700px) {
@@ -48,15 +47,14 @@
       }
 
     }
-   
-	
   </style>
 
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-0">
-    <a class="navbar-brand"><img src="../static/img/logo.png" th:src="@{/img/logo.png}" alt="Icono página" height="50px"></a>
+    <a class="navbar-brand"><img src="../static/img/logo.png" th:src="@{/img/logo.png}" alt="Icono página"
+        height="50px"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
       aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -74,21 +72,21 @@
           <a class="nav-link" th:href="@{/evento/new}">Nuevo evento</a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" th:href="@{/eventos}">Administrar eventos</a>
-            <span class="sr-only">(current)</span>
+          <a class="nav-link" th:href="@{/eventos}">Administrar eventos</a>
+          <span class="sr-only">(current)</span>
         </li>
 
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" name="q" th:value="${param.q}" placeholder="Nombre reserva..." onchange="window.location.href='http://localhost:9000/?q=' + this.value"/>
+        <input class="form-control mr-sm-2" type="text" name="q" th:value="${param.q}" placeholder="Nombre reserva..."
+          onchange="window.location.href='http://localhost:9000/?q=' + this.value" />
         <button class="btn btn-secondary my-2 my-sm-0 text-align-center" type="submit">
-          <svg
-          xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
-          viewBox="0 0 16 16">
-          <path
-            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-        </svg>
-      </button>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+            viewBox="0 0 16 16">
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+          </svg>
+        </button>
       </form>
     </div>
   </nav>
@@ -114,8 +112,10 @@
             <td th:text="${evento.descripcion}" class="column">info</td>
             <td th:text="${evento.fechaEvento}" class="column">date</td>
             <td th:text="${evento.precioEntrada}" class="column">price</td>
-            <td class="column col-1 col-md-1 col-xl-1"><a th:href="@{evento/editar/{id}(id=${evento.idEvento})}" class="btn btn-primary ml-0 d-flex justify-content-center">Editar</a></td>
-            <td class="colmun col-1 col-md-1 col-xl-1"><a th:href="@{evento/borrar/{id}(id=${evento.idEvento})}" class="btn btn-danger mr-0 d-flex justify-content-center">Borrar</a></td>
+            <td class="column col-1 col-md-1 col-xl-1"><a th:href="@{evento/editar/{id}(id=${evento.idEvento})}"
+                class="btn btn-primary ml-0 d-flex justify-content-center">Editar</a></td>
+            <td class="colmun col-1 col-md-1 col-xl-1"><a th:href="@{evento/borrar/{id}(id=${evento.idEvento})}"
+                class="btn btn-danger mr-0 d-flex justify-content-center">Borrar</a></td>
           </tr>
         </tbody>
       </table>

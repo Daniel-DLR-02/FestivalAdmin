@@ -50,7 +50,15 @@ public class InitData {
 
 											new Evento("Garden of Madness", "La franquicia más exitosa del mundo de la música electrónica, Tomorrowland, ha organizado este festival otoño-invernal en la ciudad de Amberes. En el cartel encontrarás "
 													+ "artistas de la talla de Dimitri Vegas,Armin Van Buuren y Niky Romero.",
-													LocalDate.of(2021, 12, 14),154,"https://i.ytimg.com/vi/qM0hMs1oMfI/maxresdefault.jpg"));
+													LocalDate.of(2021, 12, 14),154,"https://i.ytimg.com/vi/qM0hMs1oMfI/maxresdefault.jpg"),
+											
+											new Evento("Primavera Sound", "El \"rey del indie\" y fiel apoyo para la música más novedosa, Primavera Sound, "
+													+ "se enorgullece de servir como plataforma para la música alternativa. ",
+													LocalDate.of(2021, 6, 2),75.5,"https://d49r1np2lhhxv.cloudfront.net/www/admin/uploads/images/TOP20Primavera.jpg"),
+											
+											new Evento("Tomorrowland Winter", "Tomorrowland Winter es la edición más fría del festival de verano. Nació tan solo en 2019 y vuelve por segundo año "
+													+ "para invadir el pintoresco municipio de Alpe d'Huez durante toda una semana.  ",
+													LocalDate.of(2021, 3, 14),95.5,"https://media.resources.festicket.com/www/admin/uploads/images/tomorrowlandwinter1.jpg"));
 		
 		
 		

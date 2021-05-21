@@ -1,4 +1,4 @@
-<!DOCTYPE html >
+<!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -25,7 +25,8 @@
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-0">
-    <a class="navbar-brand"><img th:src="@{/img/logo.png}"src="../static/img/logo.png" alt="Icono página" height="50px"></a>
+    <a class="navbar-brand"><img th:src="@{/img/logo.png}" src="../static/img/logo.png" alt="Icono página"
+        height="50px"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
       aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -40,8 +41,8 @@
           <a class="nav-link" th:href="@{/reservas}">Reservas</a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" th:href="@{/evento/new}">Nuevo evento</a>
-            <span class="sr-only">(current)</span>
+          <a class="nav-link" th:href="@{/evento/new}">Nuevo evento</a>
+          <span class="sr-only">(current)</span>
         </li>
         <li class="nav-item">
           <a class="nav-link" th:href="@{/eventos}">Administrar eventos</a>
@@ -51,8 +52,8 @@
     </div>
   </nav>
   <div class="container border rounded bg-dark pb-4 mb-4">
-    <form method="post" th:action="@{/evento/add}"
-    	th:object="${evento}" class="col-11 d-flex flex-column justify-content-center">
+    <form method="post" th:action="@{/evento/add}" th:object="${evento}"
+      class="col-11 d-flex flex-column justify-content-center">
       <div class="form-group col-12 d-flex d-row flex-wrap p-0 ml-4">
         <div class="container col-xl-5 col-12 p-0 mr-4">
           <label for="nombre">Nombre del evento</label>
@@ -61,23 +62,27 @@
         </div>
         <div class="container col-xl-5 col-12 p-0 ml-0">
           <label for="nombre">Descripción</label>
-          <input type="text" class="form-control" th:field="*{descripcion}" id="descripcion" aria-describedby="descripcionHelp">
+          <input type="text" class="form-control" th:field="*{descripcion}" id="descripcion"
+            aria-describedby="descripcionHelp">
           <small id="descripcionHelp" class="form-text text-muted">Escriba una breve descripción.</small>
         </div>
       </div>
       <div class="form-group col-12 d-flex d-row flex-wrap p-0 ml-4">
         <div class="container col-xl-5 col-12 p-0 mr-4">
           <label for="correoElectronico">Precio de la entrada del evento</label>
-          <input type="number" class="form-control" th:field="*{precioEntrada}" id="precioEntrada" aria-describedby="priceHelp">
-          <small id="priceHelp" class="form-text text-muted">Escriba un valor númerico correspondiente al precio de la entrada.</small>
+          <input type="number" class="form-control" th:field="*{precioEntrada}" id="precioEntrada"
+            aria-describedby="priceHelp">
+          <small id="priceHelp" class="form-text text-muted">Escriba un valor númerico correspondiente al precio de la
+            entrada.</small>
         </div>
         <div class="container col-xl-5 col-12 p-0 ml-0">
           <label>Fecha</label><br>
-          <input type="date"  th:value="*{fechaEvento}" th:field="*{fechaEvento}" id="fecha" min="2021-01-01" max="2021-12-31">
+          <input type="date" th:value="*{fechaEvento}" th:field="*{fechaEvento}" id="fecha" min="2021-01-01"
+            max="2021-12-31">
           <small id="dateHelp" class="form-text text-muted">Escriba la fecha en la que tendrá lugar el evento.</small>
 
         </div>
-       
+
       </div>
       <div class="form-group col-12 d-flex d-row flex-wrap p-0 mt-0 ml-4">
         <div class="container col-6 p-0">

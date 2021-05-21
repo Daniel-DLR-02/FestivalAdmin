@@ -48,7 +48,8 @@
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-0">
-    <a class="navbar-brand"><img src="../static/img/logo.png" th:src="@{/img/logo.png}" alt="Icono página" height="50px"></a>
+    <a class="navbar-brand"><img src="../static/img/logo.png" th:src="@{/img/logo.png}" alt="Icono página"
+        height="50px"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
       aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -83,13 +84,15 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="d-block w-100" th:src="@{/img/leedsreading.png}" src="../static/img/leedsreading.png" alt="First slide">
+        <img class="d-block w-100" th:src="@{/img/leedsreading.png}" src="../static/img/leedsreading.png"
+          alt="First slide">
       </div>
       <div class="carousel-item">
         <img class="d-block w-100" th:src="@{/img/defqon.jpg}" src="../static/img/defqon.jpg" alt="Second slide">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" th:src="@{/img/banner-tomorrowland-2021.jpg}" src="../static/img/banner-tomorrowland-2021.jpg" alt="Third slide">
+        <img class="d-block w-100" th:src="@{/img/banner-tomorrowland-2021.jpg}"
+          src="../static/img/banner-tomorrowland-2021.jpg" alt="Third slide">
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -154,17 +157,20 @@
         <div class="container d-flex flex-wrap">
           <div class="card border-danger mb-3 col-xl-5 col-12 p-0 mr-4" th:each="evento : ${eventosEnero}">
             <div class="card-body">
-              <img th:src="${not (#strings.isEmpty(evento.image))} ? ${evento.image} : 'http://placehold.it/48x48'" class=" card-img-top  icono-categoria" alt="imagen evento" />
+              <img th:src="${not (#strings.isEmpty(evento.image))} ? ${evento.image} : 'http://placehold.it/48x48'"
+                class=" card-img-top  icono-categoria" alt="imagen evento" />
             </div>
             <div class="card-footer bg-danger col-xl-12 mr-4">
-              <p th:text="${evento.nombre} + ' (' + ${evento.fechaEvento}+')'" class="col-12 col-xl-12 text-center">Nombre evento</p>
-              <a class="btn btn-primary col-xl-12 col-12" th:href="@{/detalles/{id}(id=${evento.idEvento})}">Ver detalles</a>
+              <p th:text="${evento.nombre} + ' (' + ${evento.fechaEvento}+')'" class="col-12 col-xl-12 text-center">
+                Nombre evento</p>
+              <a class="btn btn-primary col-xl-12 col-12" th:href="@{/detalles/{id}(id=${evento.idEvento})}">Ver
+                detalles</a>
             </div>
           </div>
-          
-          
+
+
         </div>
-        
+
       </div>
       <div class="container ml-0 col-xl-12 col-12">
 
@@ -173,11 +179,14 @@
         <div class="container d-flex flex-wrap">
           <div class="card border-danger mb-3 col-xl-5 col-12 p-0 mr-4" th:each="evento : ${eventosFebrero}">
             <div class="card-body">
-              <img th:src="${not (#strings.isEmpty(evento.image))} ? ${evento.image} : 'http://placehold.it/48x48'" class=" card-img-top  icono-categoria" alt="imagen evento" />
+              <img th:src="${not (#strings.isEmpty(evento.image))} ? ${evento.image} : 'http://placehold.it/48x48'"
+                class=" card-img-top  icono-categoria" alt="imagen evento" />
             </div>
             <div class="card-footer bg-danger col-xl-12 mr-4">
-              <p th:text="${evento.nombre} + ' (' + ${evento.fechaEvento}+')'" class="col-12 col-xl-12 text-center">Nombre evento</p>
-              <a class="btn btn-primary col-xl-12 col-12" th:href="@{/detalles/{id}(id=${evento.idEvento})}">Ver detalles</a>
+              <p th:text="${evento.nombre} + ' (' + ${evento.fechaEvento}+')'" class="col-12 col-xl-12 text-center">
+                Nombre evento</p>
+              <a class="btn btn-primary col-xl-12 col-12" th:href="@{/detalles/{id}(id=${evento.idEvento})}">Ver
+                detalles</a>
             </div>
           </div>
         </div>
@@ -189,11 +198,14 @@
         <div class="container d-flex flex-wrap">
           <div class="card border-danger mb-3 col-xl-5 col-12 p-0 mr-4" th:each="evento : ${eventosMarzo}">
             <div class="card-body">
-              <img th:src="${not (#strings.isEmpty(evento.image))} ? ${evento.image} : 'http://placehold.it/48x48'" class=" card-img-top  icono-categoria" alt="imagen evento" />
+              <img th:src="${not (#strings.isEmpty(evento.image))} ? ${evento.image} : 'http://placehold.it/48x48'"
+                class=" card-img-top  icono-categoria" alt="imagen evento" />
             </div>
             <div class="card-footer bg-danger col-xl-12 mr-4">
-              <p th:text="${evento.nombre} + ' (' + ${evento.fechaEvento}+')'" class="col-12 col-xl-12 text-center">Nombre evento</p>
-              <a class="btn btn-primary col-xl-12 col-12" th:href="@{/detalles/{id}(id=${evento.idEvento})}">Ver detalles</a>
+              <p th:text="${evento.nombre} + ' (' + ${evento.fechaEvento}+')'" class="col-12 col-xl-12 text-center">
+                Nombre evento</p>
+              <a class="btn btn-primary col-xl-12 col-12" th:href="@{/detalles/{id}(id=${evento.idEvento})}">Ver
+                detalles</a>
             </div>
           </div>
         </div>
@@ -204,11 +216,14 @@
         <div class="container d-flex flex-wrap">
           <div class="card border-danger mb-3 col-xl-5 col-12 p-0 mr-4" th:each="evento : ${eventosAbril}">
             <div class="card-body">
-              <img th:src="${not (#strings.isEmpty(evento.image))} ? ${evento.image} : 'http://placehold.it/48x48'" class=" card-img-top  icono-categoria" alt="imagen evento" />
+              <img th:src="${not (#strings.isEmpty(evento.image))} ? ${evento.image} : 'http://placehold.it/48x48'"
+                class=" card-img-top  icono-categoria" alt="imagen evento" />
             </div>
             <div class="card-footer bg-danger col-xl-12 mr-4">
-              <p th:text="${evento.nombre} + ' (' + ${evento.fechaEvento}+')'" class="col-12 col-xl-12 text-center">Nombre evento</p>
-              <a class="btn btn-primary col-xl-12 col-12" th:href="@{/detalles/{id}(id=${evento.idEvento})}">Ver detalles</a>
+              <p th:text="${evento.nombre} + ' (' + ${evento.fechaEvento}+')'" class="col-12 col-xl-12 text-center">
+                Nombre evento</p>
+              <a class="btn btn-primary col-xl-12 col-12" th:href="@{/detalles/{id}(id=${evento.idEvento})}">Ver
+                detalles</a>
             </div>
           </div>
         </div>
@@ -219,11 +234,14 @@
         <div class="container d-flex flex-wrap">
           <div class="card border-danger mb-3 col-xl-5 col-12 p-0 mr-4" th:each="evento : ${eventosMayo}">
             <div class="card-body">
-              <img th:src="${not (#strings.isEmpty(evento.image))} ? ${evento.image} : 'http://placehold.it/48x48'" class=" card-img-top  icono-categoria" alt="imagen evento" />
+              <img th:src="${not (#strings.isEmpty(evento.image))} ? ${evento.image} : 'http://placehold.it/48x48'"
+                class=" card-img-top  icono-categoria" alt="imagen evento" />
             </div>
             <div class="card-footer bg-danger col-xl-12 mr-4">
-              <p th:text="${evento.nombre} + ' (' + ${evento.fechaEvento}+')'" class="col-12 col-xl-12 text-center">Nombre evento</p>
-              <a class="btn btn-primary col-xl-12 col-12" th:href="@{/detalles/{id}(id=${evento.idEvento})}">Ver detalles</a>
+              <p th:text="${evento.nombre} + ' (' + ${evento.fechaEvento}+')'" class="col-12 col-xl-12 text-center">
+                Nombre evento</p>
+              <a class="btn btn-primary col-xl-12 col-12" th:href="@{/detalles/{id}(id=${evento.idEvento})}">Ver
+                detalles</a>
             </div>
           </div>
         </div>
@@ -234,11 +252,14 @@
         <div class="container d-flex flex-wrap">
           <div class="card border-danger mb-3 col-xl-5 col-12 p-0 mr-4" th:each="evento : ${eventosJunio}">
             <div class="card-body">
-              <img th:src="${not (#strings.isEmpty(evento.image))} ? ${evento.image} : 'http://placehold.it/48x48'" class=" card-img-top  icono-categoria" alt="imagen evento" />
+              <img th:src="${not (#strings.isEmpty(evento.image))} ? ${evento.image} : 'http://placehold.it/48x48'"
+                class=" card-img-top  icono-categoria" alt="imagen evento" />
             </div>
             <div class="card-footer bg-danger col-xl-12 mr-4">
-              <p th:text="${evento.nombre} + ' (' + ${evento.fechaEvento}+')'" class="col-12 col-xl-12 text-center">Nombre evento</p>
-              <a class="btn btn-primary col-xl-12 col-12" th:href="@{/detalles/{id}(id=${evento.idEvento})}">Ver detalles</a>
+              <p th:text="${evento.nombre} + ' (' + ${evento.fechaEvento}+')'" class="col-12 col-xl-12 text-center">
+                Nombre evento</p>
+              <a class="btn btn-primary col-xl-12 col-12" th:href="@{/detalles/{id}(id=${evento.idEvento})}">Ver
+                detalles</a>
             </div>
           </div>
         </div>
@@ -249,11 +270,14 @@
         <div class="container d-flex flex-wrap">
           <div class="card border-danger mb-3 col-xl-5 col-12 p-0 mr-4" th:each="evento : ${eventosJulio}">
             <div class="card-body">
-              <img th:src="${not (#strings.isEmpty(evento.image))} ? ${evento.image} : 'http://placehold.it/48x48'" class=" card-img-top  icono-categoria" alt="imagen evento" />
+              <img th:src="${not (#strings.isEmpty(evento.image))} ? ${evento.image} : 'http://placehold.it/48x48'"
+                class=" card-img-top  icono-categoria" alt="imagen evento" />
             </div>
             <div class="card-footer bg-danger col-xl-12 mr-4">
-              <p th:text="${evento.nombre} + ' (' + ${evento.fechaEvento}+')'" class="col-12 col-xl-12 text-center">Nombre evento</p>
-              <a class="btn btn-primary col-xl-12 col-12" th:href="@{/detalles/{id}(id=${evento.idEvento})}">Ver detalles</a>
+              <p th:text="${evento.nombre} + ' (' + ${evento.fechaEvento}+')'" class="col-12 col-xl-12 text-center">
+                Nombre evento</p>
+              <a class="btn btn-primary col-xl-12 col-12" th:href="@{/detalles/{id}(id=${evento.idEvento})}">Ver
+                detalles</a>
             </div>
           </div>
         </div>
@@ -264,11 +288,14 @@
         <div class="container d-flex flex-wrap">
           <div class="card border-danger mb-3 col-xl-5 col-12 p-0 mr-4" th:each="evento : ${eventosAgosto}">
             <div class="card-body">
-              <img th:src="${not (#strings.isEmpty(evento.image))} ? ${evento.image} : 'http://placehold.it/48x48'" class=" card-img-top  icono-categoria" alt="imagen evento" />
+              <img th:src="${not (#strings.isEmpty(evento.image))} ? ${evento.image} : 'http://placehold.it/48x48'"
+                class=" card-img-top  icono-categoria" alt="imagen evento" />
             </div>
             <div class="card-footer bg-danger col-xl-12 mr-4">
-              <p th:text="${evento.nombre} + ' (' + ${evento.fechaEvento}+')'" class="col-12 col-xl-12 text-center">Nombre evento</p>
-              <a class="btn btn-primary col-xl-12 col-12" th:href="@{/detalles/{id}(id=${evento.idEvento})}">Ver detalles</a>
+              <p th:text="${evento.nombre} + ' (' + ${evento.fechaEvento}+')'" class="col-12 col-xl-12 text-center">
+                Nombre evento</p>
+              <a class="btn btn-primary col-xl-12 col-12" th:href="@{/detalles/{id}(id=${evento.idEvento})}">Ver
+                detalles</a>
             </div>
           </div>
         </div>
@@ -279,11 +306,14 @@
         <div class="container d-flex flex-wrap">
           <div class="card border-danger mb-3 col-xl-5 col-12 p-0 mr-4" th:each="evento : ${eventosSeptiembre}">
             <div class="card-body">
-              <img th:src="${not (#strings.isEmpty(evento.image))} ? ${evento.image} : 'http://placehold.it/48x48'" class=" card-img-top  icono-categoria" alt="imagen evento" />
+              <img th:src="${not (#strings.isEmpty(evento.image))} ? ${evento.image} : 'http://placehold.it/48x48'"
+                class=" card-img-top  icono-categoria" alt="imagen evento" />
             </div>
             <div class="card-footer bg-danger col-xl-12 mr-4">
-              <p th:text="${evento.nombre} + ' (' + ${evento.fechaEvento}+')'" class="col-12 col-xl-12 text-center">Nombre evento</p>
-              <a class="btn btn-primary col-xl-12 col-12" th:href="@{/detalles/{id}(id=${evento.idEvento})}">Ver detalles</a>
+              <p th:text="${evento.nombre} + ' (' + ${evento.fechaEvento}+')'" class="col-12 col-xl-12 text-center">
+                Nombre evento</p>
+              <a class="btn btn-primary col-xl-12 col-12" th:href="@{/detalles/{id}(id=${evento.idEvento})}">Ver
+                detalles</a>
             </div>
           </div>
         </div>
@@ -294,11 +324,14 @@
         <div class="container d-flex flex-wrap">
           <div class="card border-danger mb-3 col-xl-5 col-12 p-0 mr-4" th:each="evento : ${eventosOctubre}">
             <div class="card-body">
-              <img th:src="${not (#strings.isEmpty(evento.image))} ? ${evento.image} : 'http://placehold.it/48x48'" class=" card-img-top  icono-categoria" alt="imagen evento" />
+              <img th:src="${not (#strings.isEmpty(evento.image))} ? ${evento.image} : 'http://placehold.it/48x48'"
+                class=" card-img-top  icono-categoria" alt="imagen evento" />
             </div>
             <div class="card-footer bg-danger col-xl-12 mr-4">
-              <p th:text="${evento.nombre} + ' (' + ${evento.fechaEvento}+')'" class="col-12 col-xl-12 text-center">Nombre evento</p>
-              <a class="btn btn-primary col-xl-12 col-12" th:href="@{/detalles/{id}(id=${evento.idEvento})}">Ver detalles</a>
+              <p th:text="${evento.nombre} + ' (' + ${evento.fechaEvento}+')'" class="col-12 col-xl-12 text-center">
+                Nombre evento</p>
+              <a class="btn btn-primary col-xl-12 col-12" th:href="@{/detalles/{id}(id=${evento.idEvento})}">Ver
+                detalles</a>
             </div>
           </div>
         </div>
@@ -309,11 +342,14 @@
         <div class="container d-flex flex-wrap">
           <div class="card border-danger mb-3 col-xl-5 col-12 p-0 mr-4" th:each="evento : ${eventosNoviembre}">
             <div class="card-body">
-              <img th:src="${not (#strings.isEmpty(evento.image))} ? ${evento.image} : 'http://placehold.it/48x48'" class=" card-img-top  icono-categoria" alt="imagen evento" />
+              <img th:src="${not (#strings.isEmpty(evento.image))} ? ${evento.image} : 'http://placehold.it/48x48'"
+                class=" card-img-top  icono-categoria" alt="imagen evento" />
             </div>
             <div class="card-footer bg-danger col-xl-12 mr-4">
-              <p th:text="${evento.nombre} + ' (' + ${evento.fechaEvento}+')'" class="col-12 col-xl-12 text-center">Nombre evento</p>
-              <a class="btn btn-primary col-xl-12 col-12" th:href="@{/detalles/{id}(id=${evento.idEvento})}">Ver detalles</a>
+              <p th:text="${evento.nombre} + ' (' + ${evento.fechaEvento}+')'" class="col-12 col-xl-12 text-center">
+                Nombre evento</p>
+              <a class="btn btn-primary col-xl-12 col-12" th:href="@{/detalles/{id}(id=${evento.idEvento})}">Ver
+                detalles</a>
             </div>
           </div>
         </div>
@@ -324,11 +360,14 @@
         <div class="container d-flex flex-wrap">
           <div class="card border-danger mb-3 col-xl-5 col-12 p-0 mr-4" th:each="evento : ${eventosDiciembre}">
             <div class="card-body">
-              <img th:src="${not (#strings.isEmpty(evento.image))} ? ${evento.image} : 'http://placehold.it/48x48'" class=" card-img-top  icono-categoria" alt="imagen evento" />
+              <img th:src="${not (#strings.isEmpty(evento.image))} ? ${evento.image} : 'http://placehold.it/48x48'"
+                class=" card-img-top  icono-categoria" alt="imagen evento" />
             </div>
             <div class="card-footer bg-danger col-xl-12 mr-4">
-              <p th:text="${evento.nombre} + ' (' + ${evento.fechaEvento}+')'" class="col-12 col-xl-12 text-center">Hola</p>
-              <a class="btn btn-primary col-xl-12 col-12" th:href="@{/detalles/{id}(id=${evento.idEvento})}">Ver detalles</a>
+              <p th:text="${evento.nombre} + ' (' + ${evento.fechaEvento}+')'" class="col-12 col-xl-12 text-center">Hola
+              </p>
+              <a class="btn btn-primary col-xl-12 col-12" th:href="@{/detalles/{id}(id=${evento.idEvento})}">Ver
+                detalles</a>
             </div>
           </div>
         </div>
@@ -338,7 +377,8 @@
     <aside class="p-0 m-4 col-xl-2">
       <img class="anuncio" src="../static/img/add2.jpg" th:src="@{img/add2.jpg}" alt="Anuncio reformas casas">
       <img class="anuncio" src="../static/img/add_3.jpg" th:src="@{img/add_3.jpg}" alt="Anuncio caldo">
-      <img class="anuncio" src="../static/img/add-cocacola.jpg" th:src="@{img/add-cocacola.jpg}" alt="Anuncio coca-cola">
+      <img class="anuncio" src="../static/img/add-cocacola.jpg" th:src="@{img/add-cocacola.jpg}"
+        alt="Anuncio coca-cola">
     </aside>
   </div>
 

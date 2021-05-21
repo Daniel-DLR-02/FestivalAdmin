@@ -1,4 +1,4 @@
-<!DOCTYPE html >
+<!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -25,7 +25,8 @@
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-0">
-    <a class="navbar-brand"><img th:src="@{/img/logo.png}"src="../static/img/logo.png" alt="Icono página" height="50px"></a>
+    <a class="navbar-brand"><img th:src="@{/img/logo.png}" src="../static/img/logo.png" alt="Icono página"
+        height="50px"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
       aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -50,8 +51,8 @@
     </div>
   </nav>
   <div class="container border rounded bg-dark pb-4 mb-4">
-    <form method="post" th:action="@{/reserva/add}"
-    	th:object="${reserva}" class="col-11 d-flex flex-column justify-content-center">
+    <form method="post" th:action="@{/reserva/add}" th:object="${reserva}"
+      class="col-11 d-flex flex-column justify-content-center">
       <div class="form-group col-12 d-flex d-row flex-wrap p-0 ml-4">
         <div class="container col-xl-5 col-12 p-0 mr-4">
           <label for="nombre">Nombre</label>
@@ -67,19 +68,21 @@
       <div class="form-group col-12 d-flex d-row flex-wrap p-0 ml-4">
         <div class="container col-xl-5 col-12 p-0 mr-4">
           <label for="correoElectronico">Correo electrónico</label>
-          <input type="email" class="form-control" th:field="*{correoElectronico}" id="correoElectronico" aria-describedby="emailHelp">
+          <input type="email" class="form-control" th:field="*{correoElectronico}" id="correoElectronico"
+            aria-describedby="emailHelp">
           <small id="emailHelp" class="form-text text-muted">Escriba su correo electrónico.</small>
         </div>
         <div class="container col-xl-5 col-12 p-0 ml-0">
           <label for="numeroTelefono">Número de teléfono</label>
-          <input type="tel" class="form-control" id="numeroTelefono" th:field="*{numTelefono}" aria-describedby="phoneHelp">
+          <input type="tel" class="form-control" id="numeroTelefono" th:field="*{numTelefono}"
+            aria-describedby="phoneHelp">
           <small id="phoneHelp" class="form-text text-muted">Escriba su número de telefono.</small>
         </div>
-       
+
       </div>
       <div class="form-group col-12 d-flex d-row flex-wrap p-0 mt-0 ml-4">
         <div class="container col-1 p-0 mr-0 d-none">
-          <label>Evento</label>		
+          <label>Evento</label>
           <select th:field="*{evento}">
             <option th:each="evento:${eventos}" th:value="${evento.idEvento}" th:text=${evento.nombre}>--</option>
           </select>
