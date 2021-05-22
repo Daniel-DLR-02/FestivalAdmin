@@ -111,7 +111,7 @@
             <td th:text="${evento.nombre}" class="column">Nombre evento</td>
             <td th:text="${evento.descripcion}" class="column">info</td>
             <td th:text="${evento.fechaEvento}" class="column">date</td>
-            <td th:text="${evento.precioEntrada}" class="column">price</td>
+            <td th:text="${evento.precioEntrada} + '€'" class="column">price</td>
             <td class="column col-1 col-md-1 col-xl-1"><a th:href="@{evento/editar/{id}(id=${evento.idEvento})}"
                 class="btn btn-primary ml-0 d-flex justify-content-center">Editar</a></td>
             <td class="colmun col-1 col-md-1 col-xl-1"><a th:href="@{evento/borrar/{id}(id=${evento.idEvento})}"

@@ -36,6 +36,11 @@ public class Evento {
 	private double precioEntrada;
 	private String image;
 	
+	@EqualsAndHashCode.Exclude
+	@ToString.Exclude
+	@OneToMany(mappedBy="evento", fetch = FetchType.EAGER)
+	private List<Reserva> reservas = new ArrayList<>();
+	
 	public Evento(String nombre,String descripcion,LocalDate fechaEvento,double precioEntrada,String image) {
 		this.nombre=nombre;
 		this.descripcion=descripcion;
@@ -43,11 +48,6 @@ public class Evento {
 		this.precioEntrada=precioEntrada;
 		this.image=image;
 	}
-	
-	@EqualsAndHashCode.Exclude
-	@ToString.Exclude
-	@OneToMany(mappedBy="evento", fetch = FetchType.EAGER)
-	private List<Reserva> reservas = new ArrayList<>();
 	
 	public void addAlumno(Reserva r) {
 		this.reservas.add(r);
