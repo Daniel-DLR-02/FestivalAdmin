@@ -49,12 +49,12 @@ public class Evento {
 		this.image=image;
 	}
 	
-	public void addAlumno(Reserva r) {
+	public void addReserva(Reserva r) {
 		this.reservas.add(r);
 		r.setEvento(this);
 	}
 	
-	public void removeAlumno(Reserva r) {
+	public void removeReserva(Reserva r) {
 		this.reservas.remove(r);
 		r.setEvento(null);
 	}

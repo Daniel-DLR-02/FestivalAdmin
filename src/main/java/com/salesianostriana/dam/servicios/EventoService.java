@@ -7,7 +7,6 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.salesianostriana.dam.model.Evento;
-import com.salesianostriana.dam.model.Reserva;
 import com.salesianostriana.dam.repositorios.EventoRepositorio;
 import com.salesianostriana.dam.servicios.base.BaseService;
 

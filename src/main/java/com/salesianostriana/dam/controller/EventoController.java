@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.model.Evento;
-import com.salesianostriana.dam.model.Reserva;
 import com.salesianostriana.dam.servicios.EventoService;
 
 import lombok.RequiredArgsConstructor;

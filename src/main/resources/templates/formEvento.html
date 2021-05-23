@@ -11,6 +11,8 @@
     type="text/css">
   <link rel="icon" href="img/logo.png" type="image/icon type">
   <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css">
+  <link rel="stylesheet" th:href="@{/css/estilosAdicionalesFormulario.css}" href="../static/css/estilosAdicionalesFormulario.css" type="text/css">
+
   <style>
     .form-group {
       margin-top: 2%;
@@ -52,40 +54,53 @@
     </div>
   </nav>
   <div class="container border rounded bg-dark pb-4 mb-4">
-    <form method="post" th:action="@{/evento/add}" th:object="${evento}"
-      class="col-11 d-flex flex-column justify-content-center">
-      <div class="form-group col-12 d-flex d-row flex-wrap p-0 ml-4">
-        <div class="container col-xl-5 col-12 p-0 mr-4">
-          <label for="nombre">Nombre del evento</label>
-          <input type="text" class="form-control" th:field="*{nombre}" id="nombre" aria-describedby="nameHelp" th:required="required">
-          <small id="nameHelp" class="form-text text-muted">Escriba el nombre del evento.</small>
-        </div>
-        <div class="container col-xl-5 col-12 p-0 ml-0">
-          <label for="nombre">Descripción</label>
-          <input type="text" class="form-control" th:field="*{descripcion}" id="descripcion"
-            aria-describedby="descripcionHelp" th:required="required">
-          <small id="descripcionHelp" class="form-text text-muted">Escriba una breve descripción.</small>
-        </div>
+    <form method="post" id="formulario" th:action="@{/evento/add}" th:object="${evento}"
+      class="formulario col-11 d-flex flex-row flex-wrap justify-content-center">
+      
+      <div class="form-group col-12 col-xl-4 d-flex flex-row flex-wrap p-0 ml-0">
+        <label for="nombre">Nombre del evento</label>
+        <input type="text" class="form-control" th:field="*{nombre}" id="nombre" aria-describedby="nameHelp" th:required="required">
+        <small id="nameHelp" class="form-text text-muted">Escriba el nombre del evento.</small>
       </div>
-      <div class="form-group col-12 d-flex d-row flex-wrap p-0 ml-4">
+      <div class="form-group col-12 col-xl-6 d-flex d-row flex-wrap p-0 ml-4">
+        <label for="nombre">Descripción</label>
+        <input type="text" class="form-control" th:field="*{descripcion}" id="descripcion"
+          aria-describedby="descripcionHelp" th:required="required">
+        <small id="descripcionHelp" class="form-text text-muted">Escriba una breve descripción.</small>
+      </div>
+
+      <!--
         <div class="container col-xl-5 col-12 p-0 mr-4">
           <label for="correoElectronico">Precio de la entrada del evento</label>
           <input type="text" class="form-control" th:field="*{precioEntrada}" id="precioEntrada"
             aria-describedby="priceHelp" th:required="required">
           <small id="priceHelp" class="form-text text-muted">Escriba un valor númerico correspondiente al precio de la
             entrada.</small>
+        </div>      
+      -->
+      <div class="formulario__grupo col-12 col-xl-6 d-flex flex-column" id="grupo__precioEntrada">
+        <label for="precioEntrada" class="formulariolabel">Precio de la entrada</label>
+        <div class="formulario__grupo-input">
+            <input required type="text" class="formulario__input form-control" name="precioEntrada"
+              id="precioEntrada" th:field="*{precioEntrada}">
+            <small id="priceHelp" class="form-text text-muted">Escriba un valor númerico correspondiente al precio de la
+              entrada.</small>
+            <i class="formulario__validacion-estado fas fa-times-circle"></i>
         </div>
-        <div class="container col-xl-5 col-12 p-0 ml-0">
-          <label>Fecha</label><br>
-          <input type="date" th:value="*{fechaEvento}" th:field="*{fechaEvento}" id="fecha" min="2021-01-01"
-            max="2021-12-31" th:required="required">
-          <small id="dateHelp" class="form-text text-muted">Escriba la fecha en la que tendrá lugar el evento.</small>
+        <p class="formulario__input-error">Este campo solo puede contener números y un punto</p>
+      </div>
+      
+      <div class="form-group col-12 col-xl-4 d-flex flex-row flex-wrap p-0">
 
-        </div>
+        <label>Fecha:</label><br>
+        <input class="ml-5" type="date" th:value="*{fechaEvento}" th:field="*{fechaEvento}" id="fecha" min="2021-01-01"
+          max="2021-12-31" th:required="required">
+        <small id="dateHelp" class="form-text text-muted">Escriba la fecha en la que tendrá lugar el evento.</small>
+
 
       </div>
       <div class="form-group col-12 d-flex d-row flex-wrap p-0 mt-0 ml-4">
-        <div class="container col-6 p-0">
+        <div class="container col-12 p-0">
           <label for="fotoEvento">Fotografía del evento</label>
           <input type="text" class="form-control" th:field="*{image}" id="fotoEvento" th:required="required">
           <small id="imageHelp" class="form-text text-muted">Introduzca la url de la fotografía.</small>
@@ -94,13 +109,17 @@
         <div class="container col-0 p-0 mr-0">
           <input type="hidden" th:field="*{idEvento}" id="id">
         </div>
-        <div class="col-xl-12 col-12 d-flex justify-content-end">
-          <button type="submit" class="btn btn-primary btn-lg mr-4">Finalizar</button>
+        <div class="formulario__mensaje" id="formulario__mensaje">
+          <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente. </p>
+        </div>
+        <div class="formulario__grupo formulario__grupo-btn-enviar col-xl-12 col-12 d-flex justify-content-end">
+          <p class="formulario__mensaje-exito mr-4" id="formulario__mensaje-exito">¡Formulario enviado exitosamente!</p>
+          <button type="submit" class=".formulario__btn btn-primary btn-lg mr-4">Finalizar</button>
         </div>
       </div>
     </form>
   </div>
-  <script th:src="@{js/form_validation.js}" src="../static/js/form_validation.js"></script>
+  <script th:src="@{/js/evento_form_validation.js}" src="../static/js/evento_form_validation.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>

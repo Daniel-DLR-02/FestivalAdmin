@@ -12,7 +12,7 @@
   <link rel="icon" href="img/logo.png" type="image/icon type">
   <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css">
   <link rel="stylesheet" th:href="@{/css/estilosAdicionalesFormulario.css}" href="../static/css/estilosAdicionalesFormulario.css" type="text/css">
-
+  
   <style>
     .form-group {
       margin-top: 2%;
@@ -54,48 +54,68 @@
   </nav>
   <div class="container border rounded bg-dark pb-4 mb-4">
     <form method="post" id="formulario" th:action="@{/reserva/add}" th:object="${reserva}"
-      class="col-11 d-flex flex-column justify-content-center">
-      <div class="form-group col-12 d-flex d-row flex-wrap p-0 ml-4">
-        <div class="container col-xl-5 col-12 p-0 mr-4" id="name_field">
-          <label for="nombre">Nombre</label>
-          <input type="text" class="form-control" th:field="*{nombre}" id="nombre" name="nombre" aria-describedby="nameHelp" th:required="required">
-          <small id="nombreHelp" class="form-text text-muted">Escriba su nombre.</small>
+      class="formulario col-11 d-flex flex-row flex-wrap justify-content-center">
+    
+      <div class="formulario__grupo col-12 col-xl-5 d-flex flex-column p-4" id="grupo__nombre">
+        <label for="nombre" class="formulariolabel">Nombre</label>
+        <div class="formulario__grupo-input">
+            <input required type="text" class="formulario__input form-control" name="nombre"
+                id="nombre" th:field="*{nombre}">
+            <i class="formulario__validacion-estado fas fa-times-circle"></i>
         </div>
-        <div class="container col-xl-5 col-12 p-0 ml-0">
-          <label for="nombre">Apellidos</label>
-          <input type="text" class="form-control" th:field="*{apellidos}" id="apellidos" name="apellidos" aria-describedby="surnameHelp" th:required="required">
-          <small id="surnameHelp" class="form-text text-muted">Escriba sus apellidos.</small>
-        </div>
+        <p class="formulario__input-error">El nombre de la reserva solo puede tener letras.No puede contener ni signos, ni números.</p>
       </div>
-      <div class="form-group col-12 d-flex d-row flex-wrap p-0 ml-4">
-        <div class="container col-xl-5 col-12 p-0 mr-4">
-          <label for="correoElectronico">Correo electrónico</label>
-          <input type="email" class="form-control" name="correoElectronico" th:field="*{correoElectronico}" id="correoElectronico"
-            aria-describedby="emailHelp" th:required="required">
-          <small id="emailHelp" class="form-text text-muted">Escriba su correo electrónico.</small>
-        </div>
-        <div class="container col-xl-5 col-12 p-0 ml-0">
-          <label for="numeroTelefono">Número de teléfono</label>
-          <input type="tel" class="form-control" id="numeroTelefono" name="numeroTelefono" th:field="*{numTelefono}"
-            aria-describedby="phoneHelp" th:required="required">
-          <small id="phoneHelp" class="form-text text-muted">Escriba su número de telefono.</small>
-        </div>
 
-      </div>
-      <div class="form-group col-12 d-flex d-row flex-wrap p-0 mt-0 ml-4">
-        <div class="container col-1 p-0 mr-0 d-none">
-          <label>Evento</label>
-          <select th:field="*{evento}">
-            <option th:each="evento:${eventos}" th:value="${evento.idEvento}" th:text=${evento.nombre}>--</option>
-          </select>
-          <input type="hidden" th:field="*{idReserva}" id="id">
+      <div class="formulario__grupo col-12 col-xl-6 d-flex flex-column p-4" id="grupo__apellidos">
+        <label for="apellidos" class="formulariolabel">Apellidos</label>
+        <div class="formulario__grupo-input">
+            <input required type="text" class="formulario__input form-control" name="apellidos"
+                id="apellidos" th:field="*{apellidos}">
+            <i class="formulario__validacion-estado fas fa-times-circle"></i>
         </div>
-        <div class="col-xl-12 col-12 d-flex justify-content-end">
-          <button type="submit" class="btn btn-primary btn-lg mr-4">Finalizar</button>
-        </div>
+        <p class="formulario__input-error">Los apellidos asociados a la reserva solo puede tener letras.No puede contener ni signos, ni números.</p>
       </div>
+      <div class="formulario__grupo col-12 col-xl-5 d-flex flex-column p-4" id="grupo__numTelefono">
+        <label for="numTelefono" class="formulariolabel">Número de telefono</label>
+        <div class="formulario__grupo-input">
+            <input required type="text" class="formulario__input form-control" name="numTelefono"
+                id="numTelefono" th:field="*{numTelefono}">
+            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+        </div>
+        <p class="formulario__input-error">Este campo solo puede contener entre 7 y 14 números.</p>
+      </div>
+
+      <div class="formulario__grupo col-12 col-xl-6 d-flex flex-column p-4" id="grupo__correoElectronico">
+        <label for="correoElectronico" class="formulariolabel">Correo electrónico</label>
+        <div class="formulario__grupo-input">
+            <input required type="text" class="formulario__input form-control" name="correoElectronico"
+                id="correoElectronico" th:field="*{correoElectronico}">
+            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+        </div>
+        <p class="formulario__input-error">Introduzca un correo electrónico válido.</p>
+      </div>
+      
+      <div class="formulario__mensaje" id="formulario__mensaje">
+				<p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente. </p>
+			</div>
+
+      <div class="container col-1 p-0 mr-0 d-none">
+        <label>Evento</label>
+        <select th:field="*{evento}">
+          <option th:each="evento:${eventos}" th:value="${evento.idEvento}" th:text=${evento.nombre}>--</option>
+        </select>
+        <input type="hidden" th:field="*{idReserva}" id="id">
+      </div>
+      <div class="formulario__grupo formulario__grupo-btn-enviar col-xl-12 col-12 d-flex justify-content-end">
+        <p class="formulario__mensaje-exito mr-4" id="formulario__mensaje-exito">¡Formulario enviado exitosamente!</p>
+        <button type="submit" class=".formulario__btn btn-primary btn-lg mr-4">Finalizar</button>
+      </div>
+  
+
     </form>
   </div>
+
+  <script src="../static/js/reserva_form_validation.js" th:src="@{/js/reserva_form_validation.js}"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
