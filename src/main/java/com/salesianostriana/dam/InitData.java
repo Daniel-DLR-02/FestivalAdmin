@@ -8,7 +8,12 @@ import org.springframework.stereotype.Component;
 import com.salesianostriana.dam.model.Evento;
 import com.salesianostriana.dam.servicios.EventoService;
 import lombok.RequiredArgsConstructor;
-
+/**
+ * Esta clase se encarga de introducir los datos iniciales a la base de datos.En este
+ * caso son eventos.
+ * @author Daniel de Luna Rodríguez
+ *
+ */
 @Component
 @RequiredArgsConstructor
 public class InitData {
@@ -18,7 +23,7 @@ public class InitData {
 	
 	@PostConstruct
 	public void init(){
-		
+
 		List<Evento> eventosIniciales=List.of(new Evento("Tomorrowland", "Tomorrowland es un festival de música electrónica de baile celebrado anualmente en la localidad de Boom (Bélgica). "
 													+ "El festival es organizado por las empresas propias del festival "
 													+ "(We Are One World y Tomorrowland Foundation) en conjunción con la promotora.",LocalDate.of(2021, 6, 27),105.5,"https://www.mondosonoro.com/wp-content/uploads/2020/07/Tomorrowland.jpg"),

@@ -15,13 +15,26 @@ import com.salesianostriana.dam.servicios.EventoService;
 
 import lombok.RequiredArgsConstructor;
 
+/**
+ * Esta es la clase controlador del objeto evento.
+ * Se encarga de pasar los eventos de manera correcta a la plantilla,
+ * para así mostrarlos de manera adecuada. 
+ * @author Daniel de Luna Rodríguez
+ *
+ */
 @Controller
 @RequiredArgsConstructor
 public class EventoController {
 	
 	private final EventoService eventService;
 	
-	
+	/**
+	 * Este método se encarga de devolver 12 listas correspondiendo cada
+	 * una a un mes del año.Estas listas almacenan los eventos correspondientes
+	 * a cada mes.
+	 * @param model Parámetro encargado de devolver datos.
+	 * @return Como devolución tenemos la plantilla index, habiendole pasado todos los eventos.
+	 */
 	@GetMapping("/")
 	public String indexEvents(Model model) {
 		model.addAttribute("eventosEnero",eventService.eventosDeUnMes(1, 2021));
@@ -38,6 +51,13 @@ public class EventoController {
 		model.addAttribute("eventosDiciembre",eventService.eventosDeUnMes(12, 2021));
 		return "index";	
 	}
+	/**
+	 * Esta clase se encarga de filtrar los eventos con un 
+	 * buscador.
+	 * @param model Parámetro encargado de devolver datos.
+	 * @param Esta consulta es la consulta introducida por el susuario.
+	 * @return Como devolución tenemos la plantilla admin_evento con los eventos filtrados según su nombre.
+	 */
 	@GetMapping("/eventos")
 	public String listarReservas(Model model, 
 			@RequestParam("q") Optional<String> consulta) {
@@ -49,7 +69,12 @@ public class EventoController {
 		
 		return "admin_evento";
 	}
-	
+	/**
+	 * Esta clase se encarga de mostrar los detalles de un evento.
+	 * @param id Este es un parametro pasado por el path,que detalla cual es el evento que queremos ver.
+	 * @param model Parámetro encargado de devolver datos.
+	 * @return Como devolución tenemosla vista de detalles del evento,con el evento en el que hayamos seleccionado.
+	 */
 	@GetMapping("detalles/{id}")
 	public String mostrarDetallesEvento(@PathVariable("id") long id,Model model) {
 		model.addAttribute("evento",eventService.findById(id));
@@ -57,17 +82,34 @@ public class EventoController {
 		return "detalles";
 		
 	}
+	/**
+	 * Esta clase se encarga de mostrar el formulario de registro para un nuevo evento.
+	 * @param model Parámetro encargado de devolver datos.
+	 * @return Devuelve el formulario de registro de evento.
+	 */
 	@GetMapping("/evento/new")
 	public String mostrarFormulario(Model model) {
 		model.addAttribute("evento", new Evento());
 		return "formEvento";
 	}
 	
+	/**
+	 * Esta clase se encarga de procesar el formulario de registro,
+	 * añadiendo así el nuevo evento a la base de datos.
+	 * @param evento Este parametro es el evento que vamos a introducir en la base de datos.
+	 * @return Como devolución,vuelve al índice.
+	 */
 	@PostMapping("evento/add")
 	public String addEvento(@ModelAttribute("evento") Evento evento) {
 		eventService.save(evento);
 		return "redirect:/";
 	}
+	/**
+	 * Este método se encarga de abrir el formulario de edición de evento.
+	 * @param id Este es el id del evento a editar.
+	 * @param model Parámetro encargado de devolver datos.
+	 * @return Como devolución,al terminar lleva al indice.
+	 */
 	@GetMapping("evento/editar/{id}")
 	public String editarForm(@PathVariable("id") long id, Model model) {
 		Evento eventoAEditar= eventService.findById(id);
@@ -80,9 +122,14 @@ public class EventoController {
 		}
 	}
 	
-	
+	/**
+	 * Este método se encarga de borrar un evento de la base de datos.
+	 * @param id Este parametro es el id del evento a borrar.
+	 * @param model Parámetro encargado de devolver datos.
+	 * @return Como devolución,nos devuelve a la misma plantilla de admin_evento.
+	 */
 	@GetMapping("evento/borrar/{id}")
-	public String borrarReserva(@PathVariable("id") Long id, Model model) {
+	public String borrarEvento(@PathVariable("id") Long id, Model model) {
 		Evento eventABorrar = eventService.findById(id);
 		if (eventABorrar != null) 
 			eventService.delete(eventABorrar);

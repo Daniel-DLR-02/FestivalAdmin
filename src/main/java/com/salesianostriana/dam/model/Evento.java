@@ -18,6 +18,10 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+/**
+ * Esta es la clase objeto de Evento.
+ * @author Daniel de Luna Rodríguez
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -40,7 +44,14 @@ public class Evento {
 	@ToString.Exclude
 	@OneToMany(mappedBy="evento", fetch = FetchType.EAGER)
 	private List<Reserva> reservas = new ArrayList<>();
-	
+	/**
+	 * Constructor de Evento.
+	 * @param nombre Nombre del evento.
+	 * @param descripcion Breve descripción del evento.
+	 * @param fechaEvento Fecha en la cual transcurre el evento.
+	 * @param precioEntrada Precio de la entrada del evento.
+	 * @param image Imagen asociada al evento.
+	 */
 	public Evento(String nombre,String descripcion,LocalDate fechaEvento,double precioEntrada,String image) {
 		this.nombre=nombre;
 		this.descripcion=descripcion;
@@ -48,11 +59,18 @@ public class Evento {
 		this.precioEntrada=precioEntrada;
 		this.image=image;
 	}
-	
+	/**
+	 * Esta clase se encarga de añadir una reserva de la lista de reservas asociada a un evento.
+	 * @param r Este parámetro es la reserva a añadir.
+	 */
 	public void addReserva(Reserva r) {
 		this.reservas.add(r);
 		r.setEvento(this);
 	}
+	/**
+	 * Esta clase se encarga de eliminar una reserva de la lista de reservas asociada a un evento.
+	 * @param r Este parámetro es la reserva a eliminar.
+	 */
 	
 	public void removeReserva(Reserva r) {
 		this.reservas.remove(r);
