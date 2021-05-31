@@ -53,13 +53,15 @@ public class Evento {
 	 * @param fechaEvento Fecha en la cual transcurre el evento.
 	 * @param precioEntrada Precio de la entrada del evento.
 	 * @param image Imagen asociada al evento.
+	 * @param alt_img Texto alternativo que tendrá la imagen.
 	 */
-	public Evento(String nombre,String descripcion,LocalDate fechaEvento,double precioEntrada,String image) {
+	public Evento(String nombre,String descripcion,LocalDate fechaEvento,double precioEntrada,String image,String alt_img) {
 		this.nombre=nombre;
 		this.descripcion=descripcion;
 		this.fechaEvento=fechaEvento;
 		this.precioEntrada=precioEntrada;
 		this.image=image;
+		this.alt_img=alt_img;
 	}
 	/**
 	 * Esta clase se encarga de añadir una reserva de la lista de reservas asociada a un evento.
