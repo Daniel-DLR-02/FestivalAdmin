@@ -6,48 +6,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
     type="text/css">
   <link rel="icon" href="img/logo.png" type="image/icon type">
   <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" type="text/css">
-  <title>Lista de reservas</title>
-  <style>
-    .column {
-      width: 8.5%;
-      text-align: center;
-    }
-
-
-
-    @media only screen and (min-width: 1000px) {
-      .carousel-inner img {
-        height: 600px;
-      }
-
-      aside {
-        visibility: visible;
-      }
-
-      .anuncio {
-        width: 16em;
-        border: 2px solid white;
-        border-radius: 15px;
-        margin-top: 20%;
-      }
-
-
-    }
-
-    @media only screen and (max-width: 700px) {
-      .carousel-inner img {
-        height: 200px;
-      }
-
-    }
-  </style>
 
 </head>
 
@@ -90,29 +54,27 @@
     </div>
   </nav>
 
-
   <div class="row col-12 col-xl-12 m-0 p-0">
-
-    <div class="container pb-4 p-0 m-0 col-12 col-xl-12 rounded">
-      <table class="table table-responsive table-striped table-dark m-0 p-0">
+    <div class="table-responsive">
+      <table class="table table-hover">
         <thead>
           <tr>
-            <th class="column">Evento</th>
-            <th class="column">Nombre</th>
-            <th class="column">Apellidos</th>
-            <th class="column">Número de teléfono</th>
-            <th class="column">Correo</th>
-            <th></th>
-            <th></th>
+            <th scope="col">Nombre evento</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">Número de teléfono</th>
+            <th scope="col">Correo electrónico</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody th:each="reserva : ${reservas}">
           <tr>
-            <td th:text="${reserva.evento.nombre}" class="column">Nombre evento</td>
-            <td th:text="${reserva.nombre}" class="column">Daniel</td>
-            <td th:text="${reserva.apellidos}" class="column">De Luna</td>
-            <td th:text="${reserva.numTelefono}" class="column">674838160</td>
-            <td th:text="${reserva.correoElectronico}" class="column">deluna.rodan21@triana.salesianos.edu</td>
+            <th scope="row" th:text="${reserva.evento.nombre}">Evento</th>
+            <td th:text="${reserva.nombre}">Nombre</td>
+            <td th:text="${reserva.apellidos}">Apellidos</td>
+            <td th:text="${reserva.numTelefono}">Número teléfono</td>
+            <td th:text="${reserva.correoElectronico}">Correo electronico</td>
             <td class="column col-1 col-md-1 col-xl-1"><a th:href="@{/editar/{id}(id=${reserva.idReserva})}"
                 class="btn btn-primary ml-0 d-flex justify-content-center">Editar</a></td>
             <td class="colmun col-1 col-md-1 col-xl-1"><a th:href="@{/borrar/{id}(id=${reserva.idReserva})}"
@@ -123,7 +85,6 @@
     </div>
 
   </div>
-
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
