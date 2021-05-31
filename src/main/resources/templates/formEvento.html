@@ -69,15 +69,6 @@
         <small id="descripcionHelp" class="form-text text-muted">Escriba una breve descripción.</small>
       </div>
 
-      <!--
-        <div class="container col-xl-5 col-12 p-0 mr-4">
-          <label for="correoElectronico">Precio de la entrada del evento</label>
-          <input type="text" class="form-control" th:field="*{precioEntrada}" id="precioEntrada"
-            aria-describedby="priceHelp" th:required="required">
-          <small id="priceHelp" class="form-text text-muted">Escriba un valor númerico correspondiente al precio de la
-            entrada.</small>
-        </div>      
-      -->
       <div class="formulario__grupo col-12 col-xl-6 d-flex flex-column" id="grupo__precioEntrada">
         <label for="precioEntrada" class="formulariolabel">Precio de la entrada</label>
         <div class="formulario__grupo-input">
@@ -100,10 +91,16 @@
 
       </div>
       <div class="form-group col-12 d-flex d-row flex-wrap p-0 mt-0 ml-4">
-        <div class="container col-12 p-0">
+        <div class="container col-12 col-xl-5 p-0">
           <label for="fotoEvento">Fotografía del evento</label>
           <input type="text" class="form-control" th:field="*{image}" id="fotoEvento" th:required="required">
           <small id="imageHelp" class="form-text text-muted">Introduzca la url de la fotografía.</small>
+
+        </div>
+        <div class="container col-12 col-xl-5 p-0">
+          <label for="textoAlternativo">Texto alternativo</label>
+          <input type="text" class="form-control" th:field="*{alt_img}" id="textoAlternativo" th:required="required">
+          <small id="imageHelp" class="form-text text-muted">Introduzca el texto alternativo de la fotografía.</small>
 
         </div>
         <div class="container col-0 p-0 mr-0">

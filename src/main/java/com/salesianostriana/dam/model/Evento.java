@@ -40,6 +40,8 @@ public class Evento {
 	private double precioEntrada;
 	private String image;
 	
+	private String alt_img;
+	
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
 	@OneToMany(mappedBy="evento", fetch = FetchType.EAGER)

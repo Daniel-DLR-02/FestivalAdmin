@@ -72,7 +72,7 @@
       <div class="card border-danger mb-3 col-xl-12 col-12 p-0 mr-4">
         <div class="card-body">
           <img th:src="${not (#strings.isEmpty(evento.image))} ? ${evento.image} : 'http://placehold.it/48x48'"
-            class=" card-img-top  icono-categoria" alt="imagen evento" />
+            class=" card-img-top  icono-categoria" alt="imagen evento" th:alt="${evento.alt_img}" />
           <p class="card-text border rounded mt-2" th:text="${evento.descripcion}">Info</p>
         </div>
         <div class="card-footer bg-danger col-xl-12 mr-4">
