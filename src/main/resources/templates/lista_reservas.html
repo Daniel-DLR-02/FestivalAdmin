@@ -53,36 +53,38 @@
       </form>
     </div>
   </nav>
-
-  <div class="row col-12 col-xl-12 m-0 p-0">
-    <div class="table-responsive">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Nombre evento</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Apellidos</th>
-            <th scope="col">Número de teléfono</th>
-            <th scope="col">Correo electrónico</th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody th:each="reserva : ${reservas}">
-          <tr>
-            <th scope="row" th:text="${reserva.evento.nombre}">Evento</th>
-            <td th:text="${reserva.nombre}">Nombre</td>
-            <td th:text="${reserva.apellidos}">Apellidos</td>
-            <td th:text="${reserva.numTelefono}">Número teléfono</td>
-            <td th:text="${reserva.correoElectronico}">Correo electronico</td>
-            <td class="column col-1 col-md-1 col-xl-1"><a th:href="@{/editar/{id}(id=${reserva.idReserva})}"
-                class="btn btn-primary ml-0 d-flex justify-content-center">Editar</a></td>
-            <td class="colmun col-1 col-md-1 col-xl-1"><a th:href="@{/borrar/{id}(id=${reserva.idReserva})}"
-                class="btn btn-danger mr-0 d-flex justify-content-center">Borrar</a></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <section>
+    <div class="row col-12 col-xl-12 m-0 p-0">
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Nombre evento</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellidos</th>
+              <th scope="col">Número de teléfono</th>
+              <th scope="col">Correo electrónico</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody th:each="reserva : ${reservas}">
+            <tr>
+              <th scope="row" th:text="${reserva.evento.nombre}">Evento</th>
+              <td th:text="${reserva.nombre}">Nombre</td>
+              <td th:text="${reserva.apellidos}">Apellidos</td>
+              <td th:text="${reserva.numTelefono}">Número teléfono</td>
+              <td th:text="${reserva.correoElectronico}">Correo electronico</td>
+              <td class="column col-1 col-md-1 col-xl-1"><a th:href="@{/editar/{id}(id=${reserva.idReserva})}"
+                  class="btn btn-primary ml-0 d-flex justify-content-center">Editar</a></td>
+              <td class="colmun col-1 col-md-1 col-xl-1"><a th:href="@{/borrar/{id}(id=${reserva.idReserva})}"
+                  class="btn btn-danger mr-0 d-flex justify-content-center">Borrar</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </section>
 
   </div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
