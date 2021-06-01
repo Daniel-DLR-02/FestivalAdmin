@@ -4,12 +4,10 @@
 
 
 main {
-	max-width: 800px;
-	width: 90%;
-	margin: auto;
-	padding: 40px;
+	max-width: 2000px;
+	width: 80%;
+	padding:0%;
 }
-
 .formulario {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -113,7 +111,6 @@ main {
 	display: block;
 }
 
-/* ----- -----  Estilos para Validacion ----- ----- */
 .formulario__grupo-correcto .formulario__validacion-estado {
 	color: #1ed12d;
 	opacity: 1;
@@ -133,7 +130,6 @@ main {
 }
 
 
-/* ----- -----  Mediaqueries ----- ----- */
 @media screen and (max-width: 800px) {
 	.formulario {
 		grid-template-columns: 1fr;
@@ -169,6 +165,9 @@ main {
       border-radius: 15px;
       margin-top: 20%;
     }
+	.card{
+		margin-left:5%;
+	}
 
 
 }
@@ -176,9 +175,11 @@ main {
 @media only screen and (max-width: 700px) {
     .carousel-inner img {
       height: 200px;
+	  width: 100%;
     }
     aside {
         visibility:hidden;
         display: none;
     }
+	
 }
