@@ -4,8 +4,7 @@
 
 
 main {
-
-	
+	min-height:520px;
 }
 .formulario {
 	display: grid;
