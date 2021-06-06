@@ -43,11 +43,11 @@
               <a class="dropdown-item active" th:href="@{/eventos}">Administrar eventos
                 <span class="visually-hidden">(current)</span>
               </a>
-              <a class="dropdown-item" th:href="@{/evento/new}">Nuevo evento</a>
+              <a class="dropdown-item" th:href="@{/evento/new}" href="./formEvento.html">Nuevo evento</a>
             </div>
           </li>
         </ul>
-        <form class="form-inline d-flex my-2 my-lg-0 col-12 col-xl-3">
+        <form class="form-inline d-flex my-2 my-lg-0 col-12 col-xl-3 col-md-4">
           <input class="form-control mr-sm-2" type="text" name="q" th:value="${param.q}" placeholder="Nombre evento..."
             onchange="window.location.href='http://localhost:9000/?q=' + this.value" style="height: 50%;" />
           <button class="btn btn-secondary my-2 my-sm-0 text-align-center m-2 mt-0" type="submit">
