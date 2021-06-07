@@ -49,55 +49,63 @@
   <main class="d-flex justify-content-center">
     <div class="container border rounded bg-dark p-2 mb-4 mt-4">
       <form method="post" id="formulario" th:action="@{/evento/add}" th:object="${evento}"
-        class="formulario col-11 d-flex flex-row flex-wrap justify-content-center">
-
-        <div class="form-group col-12 col-xl-4 d-flex flex-row flex-wrap p-0 ml-0">
-          <label for="nombre">Nombre del evento</label>
-          <input type="text" class="form-control" th:field="*{nombre}" id="nombre" aria-describedby="nameHelp"
-            th:required="required">
-          <small id="nameHelp" class="form-text text-muted">Escriba el nombre del evento.</small>
-        </div>
-        <div class="form-group col-12 col-xl-6 d-flex d-row flex-wrap p-0 ml-4">
-          <label for="nombre">Descripción</label>
-          <input type="text" class="form-control" th:field="*{descripcion}" id="descripcion"
-            aria-describedby="descripcionHelp" th:required="required">
-          <small id="descripcionHelp" class="form-text text-muted">Escriba una breve descripción.</small>
-        </div>
-
-        <div class="formulario__grupo col-12 col-xl-6 d-flex flex-column" id="grupo__precioEntrada">
-          <label for="precioEntrada" class="formulariolabel">Precio de la entrada</label>
-          <div class="formulario__grupo-input">
-            <input required type="text" class="formulario__input form-control" name="precioEntrada" id="precioEntrada"
-              th:field="*{precioEntrada}">
-            <small id="priceHelp" class="form-text text-muted">Escriba un valor númerico correspondiente al precio de la
-              entrada.</small>
-            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+        class="formulario col-12 d-flex flex-row flex-wrap justify-content-center">
+        <div class="row col-12 d-flex justify-content-center">
+          <div class="form-group col-12 col-xl-4 p-4">
+            <label for="nombre">Nombre del evento</label>
+            <input type="text" class="form-control" th:field="*{nombre}" id="nombre" aria-describedby="nameHelp"
+              th:required="required">
+            <small id="nameHelp" class="form-text text-muted">Escriba el nombre del evento.</small>
           </div>
-          <p class="formulario__input-error">Este campo solo puede contener números y un punto</p>
+          <div class="form-group col-12 col-xl-6 p-4">
+            <label for="nombre">Descripción</label>
+            <input type="text" class="form-control" th:field="*{descripcion}" id="descripcion"
+              aria-describedby="descripcionHelp" th:required="required">
+            <small id="descripcionHelp" class="form-text text-muted">Escriba una breve descripción.</small>
+          </div>
         </div>
+        <div class="row col-12 d-flex justify-content-center">
+          <div class="formulario__grupo col-12 col-xl-6 d-flex flex-column p-4 pt-0" id="grupo__precioEntrada">
+            <label for="precioEntrada" class="formulariolabel">Precio de la entrada</label>
+            <div class="formulario__grupo-input">
+              <input required type="text" class="formulario__input form-control" name="precioEntrada" id="precioEntrada"
+                th:field="*{precioEntrada}">
+              <small id="priceHelp" class="form-text text-muted">Escriba un valor númerico correspondiente al precio de la
+                entrada.</small>
+              <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">Este campo solo puede contener números y un punto</p>
+          </div>
+        
+          <div class="form-group col-12 col-xl-4 d-flex flex-row flex-wrap p-4">
 
-        <div class="form-group col-12 col-xl-4 d-flex flex-row flex-wrap p-0">
+            <label>Fecha:</label><br>
+            <input class="ml-5" type="date" th:value="*{fechaEvento}" th:field="*{fechaEvento}" id="fecha"
+              min="2021-01-01" max="2021-12-31" th:required="required">
+            <small id="dateHelp" class="form-text text-muted">Escriba la fecha en la que tendrá lugar el evento.</small>
 
-          <label>Fecha:</label><br>
-          <input class="ml-5" type="date" th:value="*{fechaEvento}" th:field="*{fechaEvento}" id="fecha"
-            min="2021-01-01" max="2021-12-31" th:required="required">
-          <small id="dateHelp" class="form-text text-muted">Escriba la fecha en la que tendrá lugar el evento.</small>
-
-
-        </div>
-        <div class="form-group col-12 d-flex d-row flex-wrap p-0 mt-0 ml-4">
-          <div class="container col-12 col-xl-5 p-0">
-            <label for="fotoEvento">Fotografía del evento</label>
-            <input type="text" class="form-control" th:field="*{image}" id="fotoEvento" th:required="required">
-            <small id="imageHelp" class="form-text text-muted">Introduzca la url de la fotografía.</small>
 
           </div>
-          <div class="container col-12 col-xl-5 p-0">
-            <label for="textoAlternativo">Texto alternativo</label>
-            <input type="text" class="form-control" th:field="*{alt_img}" id="textoAlternativo" th:required="required">
-            <small id="imageHelp" class="form-text text-muted">Introduzca el texto alternativo de la fotografía.</small>
+        </div>
+        <div class="row col-12 d-flex justify-content-center">
 
+          <div class="form-group col-12 col-xl-10 d-flex d-row flex-wrap">
+            <div class="container col-12 col-xl-6 p-0">
+              <label for="fotoEvento">Fotografía del evento</label>
+              <input type="text" class="form-control" th:field="*{image}" id="fotoEvento" th:required="required">
+              <small id="imageHelp" class="form-text text-muted">Introduzca la url de la fotografía.</small>
+
+            </div>
+            <div class="container col-12 col-xl-4">
+              <label for="textoAlternativo">Texto alternativo</label>
+              <input type="text" class="form-control" th:field="*{alt_img}" id="textoAlternativo" th:required="required">
+              <small id="imageHelp" class="form-text text-muted">Introduzca el texto alternativo de la fotografía.</small>
+
+            </div>
           </div>
+        </div>
+        <div class="row col-12 d-flex justify-content-center">
+
           <div class="container col-0 p-0 mr-0">
             <input type="hidden" th:field="*{idEvento}" id="id">
           </div>
