@@ -82,7 +82,7 @@
               th:field="*{numTelefono}" onfocusout="validarNumeroTelefono();">
             <i class="formulario__validacion-estado fas fa-times-circle"></i>
           </div>
-          <p class="formulario__input-error">Este campo solo puede contener entre 7 y 14 números.</p>
+          <p class="formulario__input-error" id="error_numeroTelefono">Este campo solo puede contener entre 9 números,el número de teléfono debe comenzar por 6,7,8 o 9.</p>
         </div>
 
         <div class="formulario__grupo col-12 col-xl-6 d-flex flex-column p-4" id="grupo__correoElectronico">
