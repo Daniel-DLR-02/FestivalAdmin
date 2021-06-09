@@ -54,7 +54,7 @@
       <form method="post" id="formulario" th:action="@{/reserva/add}" th:object="${reserva}"
         class="formulario col-11 d-flex flex-row flex-wrap justify-content-center">
         <div class="row col-12 ml-4 d-flex justify-content-center">
-          
+
           <div class="formulario__grupo col-12 col-xl-5 d-flex flex-column p-4" id="grupo__nombre">
             <label for="nombre" class="formulariolabel">Nombre</label>
             <div class="formulario__grupo-input" id="marco_input-nombre">
@@ -62,7 +62,8 @@
                 th:field="*{nombre}" onfocusout="validarNombre();">
               <i class="formulario__validacion-estado fas fa-times-circle"></i>
             </div>
-            <p class="formulario__input-error" id="error_nombre">El nombre de la reserva solo puede tener letras.No puede contener ni
+            <p class="formulario__input-error" id="error_nombre">El nombre de la reserva solo puede tener letras.No
+              puede contener ni
               signos, ni números.</p>
           </div>
 
@@ -73,7 +74,8 @@
                 th:field="*{apellidos}" onfocusout="validarApellidos();">
               <i class="formulario__validacion-estado fas fa-times-circle"></i>
             </div>
-            <p class="formulario__input-error" id="error_apellidos">Los apellidos asociados a la reserva solo puede tener letras.No puede
+            <p class="formulario__input-error" id="error_apellidos">Los apellidos asociados a la reserva solo puede
+              tener letras.No puede
               contener ni signos, ni números.</p>
           </div>
         </div>
@@ -85,8 +87,9 @@
                 th:field="*{numTelefono}" onfocusout="validarNumeroTelefono();">
               <i class="formulario__validacion-estado fas fa-times-circle"></i>
             </div>
-            
-            <p class="formulario__input-error" id="error_numeroTelefono">Este campo solo puede contener entre 9 números,el número de teléfono debe comenzar por 6,7,8 o 9.</p>
+
+            <p class="formulario__input-error" id="error_numeroTelefono">Este campo solo puede contener entre 9
+              números,el número de teléfono debe comenzar por 6,7,8 o 9.</p>
           </div>
 
           <div class="formulario__grupo col-12 col-xl-6 d-flex flex-column p-4" id="grupo__correoElectronico">
@@ -112,7 +115,8 @@
             <input type="hidden" th:field="*{idReserva}" id="id">
           </div>
           <div class="formulario__grupo formulario__grupo-btn-enviar col-xl-12 col-12 d-flex justify-content-end">
-            <p class="formulario__mensaje-exito mr-4" id="formulario__mensaje-exito">¡Formulario enviado exitosamente!</p>
+            <p class="formulario__mensaje-exito mr-4" id="formulario__mensaje-exito">¡Formulario enviado exitosamente!
+            </p>
             <button type="submit" class=".formulario__btn btn-primary btn-lg mr-4">Finalizar</button>
           </div>
         </div>
@@ -243,7 +247,7 @@
     integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
     crossorigin="anonymous"></script>
   </script>
-  <script src="../static/js/myScript.js" th:href="@{./js/myScript.js}"></script>
+  <script src="../static/js/myScript.js" th:src="@{/js/myScript.js}"></script>
 </body>
 
 </html>

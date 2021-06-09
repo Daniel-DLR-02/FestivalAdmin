@@ -8,6 +8,8 @@ function contarElementosTabla(){
     contadorFilas.innerHTML=numeroFilas;
 }
 
+contarElementosTabla();
+
 function validarNombre(){
     let patronNombre =/^[a-zA-Z ]{2,30}$/;
 
@@ -16,7 +18,7 @@ function validarNombre(){
     let grupoFormulario = document.getElementById("marco_input-nombre");
     if(!patronNombre.test(String(nombre).toLowerCase())){
         mensajeError.classList = 'formulario__input-error-activo';
-        grupoFormulario.classList='formulario__grupo-incorrecto'
+        grupoFormulario.classList='formulario__grupo-incorrecto';
     }
     else if(patronNombre.test(String(nombre).toLowerCase())){
         mensajeError.classList = 'formulario__input-error';
@@ -33,7 +35,7 @@ function validarApellidos(){
 
     if(!patronApellidos.test(String(apellidos).toLowerCase())){
         mensajeError.classList = 'formulario__input-error-activo';
-        grupoFormulario.classList='formulario__grupo-incorrecto'
+        grupoFormulario.classList='formulario__grupo-incorrecto';
     }
     else if(patronApellidos.test(String(apellidos).toLowerCase())){
         mensajeError.classList = 'formulario__input-error';
@@ -81,5 +83,31 @@ function validarCorreoElectronico(){
 }
 
 function validarPrecioEntrada(){
+    let patronAEvitar =/^[0-9]+([.][0-9]+)?$/;  
 
+    let precio = document.getElementById('precioEntrada').value;  
+
+    let mensajeError=document.getElementById('error_precioEntrada');
+    let grupoFormulario = document.getElementById("marco_input-precioEntrada");
+
+    if(!patronAEvitar.test(String(precio).toLowerCase())){
+        mensajeError.classList = 'formulario__input-error-activo';
+        grupoFormulario.classList='formulario__grupo-incorrecto';
+    }
+
+
+}
+
+function validarDescripcion(){
+    
+    let descripcion = document.getElementById('descripcion').value;
+
+    let mensajeError=document.getElementById('error_descripcion');
+    let grupoFormulario = document.getElementById("marco_input-descripcion");
+
+    alert(descripcion);
+    if(descripcion.length>255){
+        mensajeError.classList = 'formulario__input-error-activo';
+        grupoFormulario.classList='formulario__grupo-incorrecto';
+    }
 }
