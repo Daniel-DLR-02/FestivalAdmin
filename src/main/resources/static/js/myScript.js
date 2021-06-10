@@ -1,3 +1,4 @@
+let formulario = document.getElementById('formulario');
 
 function contarElementosTabla() {
 
@@ -167,7 +168,12 @@ function validarTextoAlternativo() {
 }
 
 function validarFormularioDeReserva(){
-    
+    if(validarNombre() && validarApellidos() && validarNumeroTelefono() && validarCorreoElectronico()){
+        formulario.submit();
+    }
+    else{
+        document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
+    }
 }
 
 

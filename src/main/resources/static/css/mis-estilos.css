@@ -147,6 +147,13 @@ main {
 	.formulario__btn {
 		width: 100%;
 	}
+	.formulario__mensaje {
+		height: 90px;
+		line-height: 45px;
+		background: #686dc3;
+		padding: 0 15px;
+		border-radius: 3px;
+	}
 }
 .column {
     width: 8.5%;
