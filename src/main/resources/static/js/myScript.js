@@ -191,8 +191,9 @@ function validarFechaEvento(){
     
     let mensajeError = document.getElementById('error_fechaEvento');
     let grupoFormulario = document.getElementById("marco_input-fechaEvento");
+    let splitFecha=fechaEvento.split("/");
 
-    if(fechaEvento!=""){
+    if(fechaEvento!="" && splitFecha[2] == "2021"){
         mensajeError.classList = 'formulario__input-error';
         grupoFormulario.classList = 'formulario__grupo-input';
         return true;
