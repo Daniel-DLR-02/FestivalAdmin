@@ -18,7 +18,7 @@
 
 </head>
 
-<body>
+<body onpageshow="contarElementosTabla();">
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
       <a class="navbar-brand"><img src="../static/img/logo.png" th:src="@{/img/logo.png}" alt="Icono página"
@@ -91,6 +91,7 @@
           </tbody>
           <tfoot>
             <td colspan="6" class="col-12 col-xl-12">Tabla de eventos.-Numero de eventos: <span id="numeroFilas"></span></td>
+            <script>contarElementosTabla();</script>
           </tfoot>
         </table>
       </div>

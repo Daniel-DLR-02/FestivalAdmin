@@ -9,7 +9,6 @@ function contarElementosTabla() {
     contadorFilas.innerHTML = numeroFilas;
 }
 
-contarElementosTabla();
 
 function validarNombre() {
     let patronNombre = /^[a-zA-Z ]{2,30}$/;
@@ -119,7 +118,7 @@ function validarDescripcion() {
 
     let mensajeError = document.getElementById('error_descripcion');
     let grupoFormulario = document.getElementById("marco_input-descripcion");
-    if (descripcion.length > 255) {
+    if (descripcion.length > 255 || descripcion == "") {
         mensajeError.classList = 'formulario__input-error-activo';
         grupoFormulario.classList = 'formulario__grupo-incorrecto';
         return false;
@@ -137,7 +136,7 @@ function validarURLFoto() {
     let mensajeError = document.getElementById('error_fotoEvento');
     let grupoFormulario = document.getElementById("marco_input-fotoEvento");
 
-    if (url.length > 255) {
+    if (url.length > 255 || url == "") {
         mensajeError.classList = 'formulario__input-error-activo';
         grupoFormulario.classList = 'formulario__grupo-incorrecto';
         return false;
@@ -155,7 +154,7 @@ function validarTextoAlternativo() {
     let mensajeError = document.getElementById('error_textoAlternativo');
     let grupoFormulario = document.getElementById("marco_input-textoAlternativo");
 
-    if (textAlt.length > 255) {
+    if (textAlt.length > 255 || textAlt == "") {
         mensajeError.classList = 'formulario__input-error-activo';
         grupoFormulario.classList = 'formulario__grupo-incorrecto';
         return false;
@@ -167,6 +166,46 @@ function validarTextoAlternativo() {
     }
 }
 
+function validarNombreEvento(){
+
+    let nombreEvento = document.getElementById('nombreEvento').value;
+
+    let mensajeError = document.getElementById('error_nombreEvento');
+    let grupoFormulario = document.getElementById("marco_input-nombreEvento");
+
+    if (nombreEvento.length > 255 || nombreEvento == "") {
+        mensajeError.classList = 'formulario__input-error-activo';
+        grupoFormulario.classList = 'formulario__grupo-incorrecto';
+        return false;
+    }
+    else if (nombreEvento.length <= 255) {
+        mensajeError.classList = 'formulario__input-error';
+        grupoFormulario.classList = 'formulario__grupo-input';
+        return true;
+    }
+}
+
+
+function validarFechaEvento(){
+    let fechaEvento = document.getElementById('fecha').value;
+    
+    let mensajeError = document.getElementById('error_fechaEvento');
+    let grupoFormulario = document.getElementById("marco_input-fechaEvento");
+
+    if(fechaEvento!=""){
+        mensajeError.classList = 'formulario__input-error';
+        grupoFormulario.classList = 'formulario__grupo-input';
+        return true;
+    }
+    else{
+        mensajeError.classList = 'formulario__input-error-activo';
+        grupoFormulario.classList = 'formulario__grupo-incorrecto';
+        return false;
+    }
+
+
+}
+
 function validarFormularioDeReserva(){
     if(validarNombre() && validarApellidos() && validarNumeroTelefono() && validarCorreoElectronico()){
         formulario.submit();
@@ -175,5 +214,18 @@ function validarFormularioDeReserva(){
         document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
     }
 }
+
+function validarFormularioDeEventos(){
+    
+    if(validarNombreEvento() && validarDescripcion() && validarPrecioEntrada() && validarURLFoto() && validarTextoAlternativo() && validarFechaEvento()){
+        formulario.submit();
+    }
+    else{
+        document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
+    }
+}  
+
+
+
 
 

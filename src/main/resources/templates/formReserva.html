@@ -60,7 +60,6 @@
             <div class="formulario__grupo-input" id="marco_input-nombre">
               <input required type="text" class="formulario__input form-control" name="nombre" id="nombre"
                 th:field="*{nombre}" onfocusout="validarNombre();">
-              <i class="formulario__validacion-estado fas fa-times-circle"></i>
             </div>
             <p class="formulario__input-error" id="error_nombre">El nombre de la reserva solo puede tener letras.No
               puede contener ni
@@ -72,7 +71,6 @@
             <div class="formulario__grupo-input" id="marco_input-apellidos">
               <input required type="text" class="formulario__input form-control" name="apellidos" id="apellidos"
                 th:field="*{apellidos}" onfocusout="validarApellidos();">
-              <i class="formulario__validacion-estado fas fa-times-circle"></i>
             </div>
             <p class="formulario__input-error" id="error_apellidos">Los apellidos asociados a la reserva solo puede
               tener letras.No puede
@@ -85,7 +83,6 @@
             <div class="formulario__grupo-input" id="marco_input-telefono">
               <input required type="text" class="formulario__input form-control" name="numTelefono" id="numTelefono"
                 th:field="*{numTelefono}" onfocusout="validarNumeroTelefono();">
-              <i class="formulario__validacion-estado fas fa-times-circle"></i>
             </div>
 
             <p class="formulario__input-error" id="error_numeroTelefono">Este campo solo puede contener entre 9
@@ -97,32 +94,29 @@
             <div class="formulario__grupo-input" id="marco_input-correoElectronico">
               <input required type="text" class="formulario__input form-control" name="correoElectronico"
                 id="correoElectronico" th:field="*{correoElectronico}" onfocusout="validarCorreoElectronico();">
-              <i class="formulario__validacion-estado fas fa-times-circle"></i>
             </div>
             <p class="formulario__input-error" id="error_correoElectronico">Introduzca un correo electrónico válido.</p>
           </div>
-
-          <div class="formulario__mensaje col-xl-5 col-12 mb-4" id="formulario__mensaje">
-            <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente.
-            </p>
+        </div>
+        <div class="row col-12 col-xl-12 d-flex justify-content-center">   
+          <div class="container col-xl-6 col-12 d-flex justify-content-center">  
+            <div class="formulario__mensaje col-xl-10 col-12 mb-2" id="formulario__mensaje">
+              <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellene el formulario correctamente.</p>
+            </div>
           </div>
-
-          <div class="container col-1 p-0 mr-0 d-none">
+          <div class="container col-0 p-0 mr-0 d-none">
             <label>Evento</label>
             <select th:field="*{evento}">
               <option th:each="evento:${eventos}" th:value="${evento.idEvento}" th:text=${evento.nombre}>--</option>
             </select>
             <input type="hidden" th:field="*{idReserva}" id="id">
           </div>
-          <div class="formulario__grupo formulario__grupo-btn-enviar col-xl-12 col-12 d-flex justify-content-end">
-            <p class="formulario__mensaje-exito mr-4" id="formulario__mensaje-exito">¡Formulario enviado exitosamente!
-            </p>
-            <button type="button" class=".formulario__btn btn-primary btn-lg mr-4" onclick="validarFormularioDeReserva()">Finalizar</button>
+          <div class="formulario__grupo formulario__grupo-btn-enviar col-xl-4 col-12 d-flex justify-content-end mt-0">
+            <button type="button" class="btn-primary btn-lg pt-0" onclick="validarFormularioDeReserva()">Finalizar</button>
           </div>
         </div>
-
-
-      </form>
+        
+        </form>
     </div>
   </main>
   <footer class="page-footer font-small bg-dark lighten-3 pt-4 text-light ml-0 col-12 col-xl-12">
