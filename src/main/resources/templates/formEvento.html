@@ -11,6 +11,9 @@
   <link rel="icon" href="img/logo.png" type="image/icon type">
   <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="../static/css/bootstrap.min.css" type="text/css">
   <link rel="stylesheet" th:href="@{/css/mis-estilos.css}" href="../static/css/mis-estilos.css" type="text/css">
+  <link rel="stylesheet" href="../static/css/datedropper.min.css" th:href="@{./css/datedropper.min.css}">
+  <script src="http://code.jquery.com/jquery-1.12.2.min.js"></script>
+  <script src="../static/js/datedropper.min.js" th:src="@{/js/datedropper.min.js}"></script>
 </head>
 
 <body>
@@ -92,8 +95,20 @@
             <label for="fechaEntrada" class="formulariolabel">Fecha:</label>
             <div class="formulario__grupo-input" id="marco_input-fechaEvento">
 
-              <input class="formulario__input form-control" type="date" th:value="*{fechaEvento}"
+              <!--<input class="formulario__input form-control" type="date" th:value="*{fechaEvento}"
+                th:field="*{fechaEvento}" id="fecha" min="2021-01-01" max="2021-12-31" required="required" th:required="required" onfocusout="validarFechaEvento();">-->
+              <div class="container">
+                <input class="formulario__input form-control" type="date" th:value="*{fechaEvento}"
                 th:field="*{fechaEvento}" id="fecha" min="2021-01-01" max="2021-12-31" required="required" th:required="required" onfocusout="validarFechaEvento();">
+                <script>
+                  $('#fecha').dateDropper({
+                    minYear:2021,
+                    maxYear:2021,
+                    expandable: true
+
+                  });
+                </script>
+              </div>
               <small id="dateHelp" class="form-text text-muted">Seleccione la fecha en la que tendrá lugar el
                 evento.</small>
                <p class="formulario__input-error" id="error_fechaEvento">Este campo no puede estar vacío.</p>
@@ -139,6 +154,7 @@
         </div>
       </form>
     </div>
+    
   </main>
   <footer class="page-footer font-small bg-dark lighten-3 pt-4 text-light ml-0">
 
@@ -260,6 +276,8 @@
     integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous">
     </script>
   <script src="../static/js/myScript.js" th:src="@{/js/myScript.js}"></script>
+  
+
 
 </body>
 
