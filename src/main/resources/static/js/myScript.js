@@ -185,8 +185,7 @@ function validarNombreEvento(){
     }
 }
 
-
-function validarFechaEvento(){
+function validarFechaEvento(){    
     let fechaEvento = document.getElementById('fecha').value;
     
     let mensajeError = document.getElementById('error_fechaEvento');
@@ -225,8 +224,3 @@ function validarFormularioDeEventos(){
         document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
     }
 }  
-
-
-
-
-

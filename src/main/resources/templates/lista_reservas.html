@@ -10,11 +10,29 @@
   <link rel="stylesheet" th:href="@{/css/mis-estilos.css}" href="../static/css/mis-estilos.css" type="text/css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
     type="text/css">
+  <script src="../static/js/granim.min.js" th:src="@{/js/granim.min.js}"></script>
   <link rel="icon" href="img/logo.png" type="image/icon type">
 
 </head>
 
 <body onpageshow="contarElementosTabla();">
+  <canvas id="canvas-basic"></canvas>
+  <script>
+    var granimInstance = new Granim({
+      element: '#canvas-basic',
+      direction: 'left-right',
+      isPausedWhenNotInView: true,
+      states: {
+        "default-state": {
+          gradients: [
+            ['#6610f2', '#e83283'],
+            ['#e96443', '#904e95'],
+            ['#2C3E50', '#4CA1AF']
+          ]
+        }
+      }
+    });
+  </script>
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <div class="container-fluid">
