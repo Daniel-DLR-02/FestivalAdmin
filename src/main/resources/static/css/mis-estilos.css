@@ -182,7 +182,7 @@ main {
 
 @media only screen and (min-width: 1000px) {
     .carousel-inner img {
-      height: 700px;
+      height: 550px;
 	  border: 2px solid black;
 	  border-radius: 20px;
     }

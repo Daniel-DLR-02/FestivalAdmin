@@ -29,7 +29,7 @@ public class Evento {
 	
 	private String nombre,descripcion;
 	
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private LocalDate fechaEvento;
 	
 	private double precioEntrada;
